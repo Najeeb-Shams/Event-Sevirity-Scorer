@@ -1,0 +1,138 @@
+/* line 22, event/static/scss/slider.scss */
+.heat-slider--h {
+  display: flex;
+  align-items: center; }
+  /* line 26, event/static/scss/slider.scss */
+  .heat-slider--h .heat-slider--label + * {
+    margin-left: 1em;
+    flex: 1; }
+
+/* line 33, event/static/scss/slider.scss */
+.heat-slider--v {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; }
+  /* line 38, event/static/scss/slider.scss */
+  .heat-slider--v .heat-slider--label + * {
+    margin-top: 1em;
+    flex: 1; }
+
+/* line 45, event/static/scss/slider.scss */
+.heat-slider {
+  --slider-base: #d8d8d8;
+  --slider-red: #fc3770;
+  --slider-orange: #ff7f36;
+  --slider-yellow: #F6D866;
+  --slider-green: #74C35A;
+  --slider-blue: #2C95DD;
+  --slider-radius: 1em;
+  --slider-handle-size: 1em;
+  --p: 22.9%;
+  width: 30em; }
+  /* line 58, event/static/scss/slider.scss */
+  .heat-slider--input {
+    position: relative;
+    line-height: 0;
+    border-radius: var(--slider-radius);
+    background-image: linear-gradient(to right, var(--slider-blue), var(--slider-green), var(--slider-yellow), var(--slider-orange), var(--slider-red)); }
+    /* line 71, event/static/scss/slider.scss */
+    .heat-slider--input::before {
+      content: '';
+      position: absolute;
+      pointer-events: none;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      margin-right: -1px;
+      border-radius: var(--slider-radius);
+      background: linear-gradient(to right, transparent 0, transparent calc(var(--p) + var(--slider-handle-size) / 2), var(--slider-base) var(--p), var(--slider-base) 100%); }
+    /* line 89, event/static/scss/slider.scss */
+    .heat-slider--input input {
+      position: realtive;
+      z-index: 1;
+      width: 100%;
+      appearance: none;
+      font: inherit;
+      background: transparent;
+      border: 0;
+      margin: 0;
+      padding: 0; }
+      /* line 101, event/static/scss/slider.scss */
+      .heat-slider--input input::-webkit-slider-runnable-track {
+        background: transparent;
+        padding: calc(var(--slider-handle-size) / 1.6) 0;
+        margin: 0 calc(var(--slider-handle-size) / 2 * -1);
+        cursor: pointer; }
+      /* line 102, event/static/scss/slider.scss */
+      .heat-slider--input input::-moz-range-track {
+        background: transparent;
+        padding: calc(var(--slider-handle-size) / 1.6) 0;
+        margin: 0 calc(var(--slider-handle-size) / 2 * -1);
+        cursor: pointer; }
+      /* line 105, event/static/scss/slider.scss */
+      .heat-slider--input input::-webkit-slider-thumb {
+        position: relative;
+        appearance: none;
+        box-shadow: 0 0 0 .2em #444;
+        height: calc(var(--slider-handle-size) * 2);
+        width: var(--slider-handle-size);
+        margin: calc(var(--slider-handle-size) * -1) 0;
+        border-radius: var(--slider-radius, 1em);
+        background: transparent;
+        cursor: grab; }
+      /* line 106, event/static/scss/slider.scss */
+      .heat-slider--input input::-moz-range-thumb {
+        position: relative;
+        appearance: none;
+        box-shadow: 0 0 0 .2em #444;
+        height: calc(var(--slider-handle-size) * 2);
+        width: var(--slider-handle-size);
+        margin: calc(var(--slider-handle-size) * -1) 0;
+        border-radius: var(--slider-radius, 1em);
+        background: transparent;
+        cursor: grab; }
+      /* line 107, event/static/scss/slider.scss */
+      .heat-slider--input input:focus {
+        outline: none; }
+      /* line 110, event/static/scss/slider.scss */
+      .heat-slider--input input:active::-webkit-slider-thumb {
+        position: relative;
+        appearance: none;
+        box-shadow: 0 0 0 .2em #444;
+        height: calc(var(--slider-handle-size) * 2);
+        width: var(--slider-handle-size);
+        margin: calc(var(--slider-handle-size) * -1) 0;
+        border-radius: var(--slider-radius, 1em);
+        background: transparent;
+        cursor: grabbing; }
+      /* line 111, event/static/scss/slider.scss */
+      .heat-slider--input input:active::-moz-range-thumb {
+        position: relative;
+        appearance: none;
+        box-shadow: 0 0 0 .2em #444;
+        height: calc(var(--slider-handle-size) * 2);
+        width: var(--slider-handle-size);
+        margin: calc(var(--slider-handle-size) * -1) 0;
+        border-radius: var(--slider-radius, 1em);
+        background: transparent;
+        cursor: grabbing; }
+
+/* line 127, event/static/scss/slider.scss */
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: system-ui, sans-serif; }
+
+/* line 138, event/static/scss/slider.scss */
+*, *::before, *::after {
+  box-sizing: border-box; }
+
+/* line 140, event/static/scss/slider.scss */
+output {
+  margin: 1em;
+  opacity: .4; }
