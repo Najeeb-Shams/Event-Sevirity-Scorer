@@ -1,0 +1,18 @@
+version: "3"
+services:
+  db:
+    image: postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_DB: event_management
+      POSTGRES_PASSWORD: shams
+
+  event_severity_scorer:
+    build: .
+    ports:
+      - "9002:5001"
+    image: event_severity_scorer_annotation
+    container_name: event_severity_scorer_annotation_container
+    command: python manage.py runserver 0.0.0.0:9002
+    depends_on:
+      - db
