@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    {% load static %}
+    {% load compress %}
+    <head>
+        <meta charset="utf-8">
+        <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge"> -->
+        <title>Event Ranking</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+        <link rel="stylesheet" href="{% static 'css/custom.css' %}">
+        <link rel="stylesheet" href="{% static 'css/slider.css' %}">
+        <!-- <link rel="stylesheet" href="{% static 'scss/slider.scss' %}"> -->
+        {% compress css %}
+            <link rel="stylesheet" type="text/x-scss" href="{% static 'scss/slider.scss' %}" media="screen">
+        {% endcompress %}
+    </head>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'js/custom.js' %}"></script>  
+    <body>
+        <div class="header" style="color: rgb(32, 118, 6)"><h1>Which event is more severe to the world economy?</h1></div>
+        <form action="" method="POST"> 
+            <input type="text" id="txtHSelectedEvent" name="txtHSelectedEvent" hidden>
+            <!-- <input type="text" id="txtReEvaluate" name="txtReEvaluate" hidden> -->
+            {% csrf_token %}
+            <div class="container">
+                <div class="row">
+                    {% for key, event in events.items %}
+                    <div class="col-md-6">
+                        <div class="card" style="min-height: 450px;">
+                            <div class="card-header">
+                                <!-- {{ event.event_id }} -->
+                                <p class="card-title"><strong>{{ event.title }}</strong></p>
+                            </div>
+                            <div class="card-body">
+                                <div style="height: 150px;">
+                                    <p class="card-text" name="description">{{ event.abstract }}</p>
+                                </div>
+                                <p class="mt-4" name="location"><strong>Location: </strong> {{ event.location }} </p>
+                                <div class="d-flex justify-content-center align-items-center" style="height:150px;">
+                                    <label class="heat-slider heat-slider--v">
+                                        <span class="heat-slider--label"><strong>How much severe?</strong></span>
+                                        <span class="heat-slider--input">
+                                            <!-- <input name="{{ key }}" type="range" value="0" min="0" max="100" oninput="doThings(event)" /> -->
+                                            <input name="{{ key }}" type="range" value="23" min="0" max="100" oninput="doThings(event)" />
+                                        </span>
+                                    </label>
+                                    <!-- <button class="btn btn-success w-50 p-2" type="button" name="{{event.event_id}}">More Severe</button> -->
+                                </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+                <input class="btn btn-success mt-3" type="submit" id="btnSubmit" value="submit">
+                <!-- <input class="btn btn-warning mt-3" type="submit" id="btnReEvaluate" value="Re-evaluate"> -->
+            </div>
+        </div>
+        </form>
+    </body>
+    <script src="{% static 'js/slider.js' %}"></script>
+</html>

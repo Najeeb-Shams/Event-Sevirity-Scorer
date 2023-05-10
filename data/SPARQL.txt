@@ -1,0 +1,25 @@
+
+https://skynet.coypu.org/#/dataset/wikievents-20160101-20230131/query
+
+
+PREFIX nif: <http://persistence.uni-leipzig.org/nlp2rdf/ontologies/nif-core#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX coy: <https://schema.coypu.org/global#>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+
+SELECT DISTINCT ?event ?title ?abstract ?location ?date ?source 
+WHERE{
+			?event a coy:WikiNews;
+					coy:isIdentifiedBy ?context;
+					coy:hasMentionDate ?date.
+			?context a nif:Context;
+    					dcterms:source ?source;
+						nif:isString ?abstract.
+			?event coy:isOccuringDuring ?parent_event.
+    		?parent_event coy:hasLocation ?location_entity.
+			?location_entity coy:isIdentifiedBy ?location.
+ 			?parent_event rdfs:label ?title.
+}
+OFFSET 500
+LIMIT 10
