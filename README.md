@@ -15,6 +15,7 @@ Event-Severity-Scorer (ESS) is a pair-wise Event severity score system developed
 ## Usage/Current Status
 
 The project is currently in a stopped state, specifically in the dataset annotation phase.
+https://annotation.hitec.skynet.coypu.org/event/rank_events/
 
 ## Installation
 
