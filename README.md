@@ -2,7 +2,7 @@
 
 ## Project Description
 
-Event-Severity-Scorer (ESS) is a pair-wise Event severity score system developed using Python and Django, with a Postgres database. The project aims to determine the severity of different events on the world economy based on their textual descriptions. Users are presented with two events and asked to decide which event is more severe. The severity score for each event is obtained from three different annotators, with scores ranging from 0 to 100. Once 1000 events have been annotated three times, the resulting dataset can be used to train a regression model capable of predicting the severity of future events.
+Event-Severity-Scorer (ESS) is a pair-wise Event severity score system developed using Python and Django, with a Postgres database. The project aims to determine the severity of different events to the world economy based on their textual descriptions. Users are presented with two events and asked to decide which event is more severe. The severity score for each event is obtained from three different annotators, with scores ranging from 0 to 100. Once 1000 events have been annotated three times, the resulting dataset can be used to train a regression model capable of predicting the severity of future events.
 ### Conceptual Sketch Model
 ![Alt Text](pictures/concept-sketch-small.png)
 
@@ -121,3 +121,4 @@ To run the project using Docker, please follow these steps:
 5. Run the Docker container:
    ```
    docker run
+
